@@ -1,0 +1,5 @@
+EntryID,HostelCode,HostelName,Gender,ManagerID,ManagerPhone,ManagerEmail,Location,InsertedBy,InsertedDate,LastUpdatedBy,LastUpdatedDate
+1,A,Ndanusa Hall,Female,E1807,08037875199,grace.ikwubiela@bazeuniversity.edu.ng,Baze University,E0577,2021-03-29 16:42:46,NULL,NULL
+2,B,Jonathan Hall,Female,E1807,08037875199,grace.ikwubiela@bazeuniversity.edu.ng,Baze University,E0577,2021-03-29 16:42:46,NULL,NULL
+3,C,Shehu Galadanci Hall,Male,E1807,08134860112,abdulmalik.tukur@bazeuniversity.edu.ng,Baze University,E0577,2023-03-29 16:42:46,NULL,NULL
+4,D,Bello Maitama,Male,E1807,08134860112,abdulmalik.tukur@bazeuniversity.edu.ng,Baze University,E0577,2023-03-29 16:42:46,NULL,NULL

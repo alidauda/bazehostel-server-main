@@ -1,0 +1,165 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model smstudentinformation {
+  StudentID                       String @id @db.VarChar(255)
+  FirstName                       String @db.VarChar(255)
+  MiddleName                      String @db.VarChar(255)
+  Surname                         String @db.VarChar(255)
+  Gender                          String @db.VarChar(255)
+  EmailAddress                    String @db.VarChar(255)
+  PhoneNumber                     String @db.VarChar(255)
+  Address                         String @db.VarChar(250)
+  StateOfOrigin                   String @db.VarChar(255)
+  Nationality                     String @db.VarChar(255)
+  DateOfBirth                     String @db.VarChar(255)
+  CourseID                        String @db.VarChar(255)
+  CourseName                      String @db.VarChar(255)
+  ApplicantID                     String @db.VarChar(255)
+  ModeOfEntry                     String @db.VarChar(255)
+  YearOfAdmission                 String @db.VarChar(255)
+  ISJAMBAdmission                 String @db.VarChar(255)
+  JAReason                        String @db.VarChar(255)
+  IsBazeAdmission                 String @db.VarChar(255)
+  BAReason                        String @db.VarChar(255)
+  EvidenceOfPayment               String @db.VarChar(255)
+  EvedenceType                    String @db.VarChar(255)
+  Testimonial                     String @db.VarChar(255)
+  TestimonialReason               String @db.VarChar(255)
+  Transcript                      String @db.VarChar(255)
+  ApplicationForTransfer          String @db.VarChar(255)
+  MedicalCertificateOfFitness     String @db.VarChar(255)
+  FitnessCerttificationReason     String @db.VarChar(255)
+  GuarantorLetter                 String @db.VarChar(255)
+  GuarantorLetterReson            String @db.VarChar(255)
+  CompletePassport                String @db.VarChar(255)
+  CompletePassportReason          String @db.VarChar(255)
+  OLevelsResult                   String @db.VarChar(255)
+  OLevelsReason                   String @db.VarChar(255)
+  JAMBUTMEResultPrintOut          String @db.VarChar(255)
+  ResultPrintOutReason            String @db.VarChar(255)
+  StudentRepresentativeCouncilDue String @db.VarChar(255)
+  OlevelsDeficiency               String @db.VarChar(255)
+  OlevelDeficiencySubject         String @db.VarChar(255)
+  StudentLevel                    String @db.VarChar(255)
+  Semester                        String @db.VarChar(255)
+  IsActive                        String @db.VarChar(255)
+  IsActiveReason                  String @db.VarChar(255)
+  GroupID                         String @db.VarChar(255)
+  GroupCode                       String @db.VarChar(255)
+  GroupName                       String @db.VarChar(255)
+  Status                          String @db.VarChar(255)
+  CohortIDString                  String @db.VarChar(255)
+  CohortCode                      String @db.VarChar(255)
+  CohortDescription               String @db.VarChar(255)
+  InsertDate                      String @db.VarChar(255)
+  InsertUserName                  String @db.VarChar(255)
+  UpdateDate                      String @db.VarChar(255)
+  UpdateUserName                  String @db.VarChar(255)
+  Enrolled                        String @db.VarChar(255)
+  ParentName                      String @db.VarChar(255)
+  ParentPhoneNumber               String @db.VarChar(255)
+  ParentAddress                   String @db.VarChar(250)
+  ParentEmailAddress              String @db.VarChar(255)
+  ISENROLLED                      String @db.VarChar(255)
+  ISTRANSFERED                    String @db.VarChar(255)
+  IsHostelRequired                String @db.VarChar(45)
+}
+
+model hostel {
+  EntryID         Int      @id @default(autoincrement())
+  HostelCode      String   @db.VarChar(45)
+  HostelName      String   @db.VarChar(245)
+  Gender          String   @db.VarChar(45)
+  ManagerID       String   @db.VarChar(45)
+  ManagerPhone    String   @db.VarChar(45)
+  ManagerEmail    String   @db.VarChar(45)
+  Location        String   @db.VarChar(245)
+  InsertedBy      String   @db.VarChar(45)
+  InsertedDate    DateTime @default(now())
+  LastUpdatedBy   String   @db.VarChar(45)
+  LastUpdatedDate String   @db.VarChar(45)
+}
+
+model hostel_allocation_tracker {
+  EntryID       Int      @id @default(autoincrement())
+  ApplicationID Int
+  Action        String   @db.VarChar(45)
+  ActionBy      String   @db.VarChar(45)
+  ActionDate    DateTime @default(now())
+}
+
+model hostel_finance_clearance {
+  EntryID        Int      @id @default(autoincrement())
+  StudentID      String   @db.VarChar(45)
+  SchoolSemester String   @db.VarChar(45)
+  AmountPaid     String   @db.VarChar(45)
+  Balance        String   @db.VarChar(45)
+  Status         Int
+  InsertedBy     String   @db.VarChar(45)
+  InseredDate    DateTime @default(now())
+}
+
+model hotel_room {
+  EntryID   Int    @id @default(autoincrement())
+  HostelID  Int
+  RoomNo    String @db.VarChar(45)
+  FloorName String @db.VarChar(45)
+  Wing      String @db.VarChar(45)
+  Capacity  String @db.VarChar(45)
+  Price     String @db.VarChar(45)
+  Status    String @db.VarChar(45)
+}
+
+model hostel_room_allocation {
+  EntryID        Int      @id @default(autoincrement())
+  StudentID      String   @db.VarChar(45)
+  SchoolSemester String   @db.VarChar(45)
+  HostelID       String   @db.VarChar(45)
+  BedID          Int
+  RoomNo         String   @db.VarChar(45)
+  BedNo          String   @db.VarChar(45)
+  Status         String   @db.VarChar(45)
+  InsertedDate   DateTime @default(now())
+  InsertedBy     String   @db.VarChar(45)
+}
+
+model hostel_room_bed {
+  EntryID    Int     @id @default(autoincrement())
+  HostelID   Int
+  FloorName  String  @db.VarChar(45)
+  Wing       String  @db.VarChar(45)
+  RoomNo     String  @db.VarChar(45)
+  BedNo      String  @db.VarChar(45)
+  OccupantID String? @db.VarChar(45)
+  Status     String  @db.VarChar(45)
+}
+
+model fmstudentpaymentdetail {
+  EntryID            Int    @id @default(autoincrement())
+  Description        String @db.VarChar(200)
+  PaymentID          String @db.VarChar(200)
+  StudentID          String @db.VarChar(200)
+  FirstName          String @db.VarChar(200)
+  MiddleName         String @db.VarChar(200)
+  Surname            String @db.VarChar(200)
+  Amount             String @db.VarChar(200)
+  SchoolTrimester    String @db.VarChar(200)
+  StudentSemester    String @db.VarChar(200)
+  StudentLevel       String @db.VarChar(200)
+  InsertDate         String @db.VarChar(200)
+  InsertUserName     String @db.VarChar(200)
+  UpdateDate         String @db.VarChar(200)
+  UpdateUserName     String @db.VarChar(200)
+  IsPaidLastSemester String @db.VarChar(200)
+  TransDescrp        String @db.VarChar(200)
+}
